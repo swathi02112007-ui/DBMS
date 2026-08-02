@@ -23,17 +23,19 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+<img width="955" height="674" alt="Screenshot 2026-08-02 174656" src="https://github.com/user-attachments/assets/90f360e0-36f2-4312-8851-b7b28937f1f0" />
 
 ### Entities and Attributes
 
 | Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+|--------|----------------------|-------|
+| MEMBER | MembershipNo (PK), Name (Composite: FirstName, LastName), DOB, Phone (Multivalued), Email (AK), Age (Derived), MembershipType, StartDate | Stores member details and membership information. |
+| PROGRAM | ProgramCode (PK), ProgramName, Duration, Fee | Stores details of fitness programs offered by the gym. |
+| TRAINER | EmployeeNo (PK), Name (Composite), Specialization, Qualification (Multivalued), Experience (Derived) | Stores trainer information and qualifications. |
+| ENROLLMENT | RegistrationNo (PK), MembershipNo (FK), ProgramCode (FK), JoinDate | Records member enrollment in fitness programs. |
+| PERSONAL_SESSION | AppointmentNo (PK), MembershipNo (FK), EmployeeNo (FK), SessionDate, Duration | Stores personal training session bookings. |
+| ATTENDANCE | RecordNo (PK), AppointmentNo (FK), Status | Records attendance for each personal training session. |
+| PAYMENT | ReceiptNo (PK), MembershipNo (FK), AppointmentNo (FK), Amount, PaymentDate, PaymentMode | Tracks payments for memberships and training sessions. |
 
 ### Relationships and Constraints
 
