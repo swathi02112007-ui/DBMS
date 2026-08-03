@@ -108,11 +108,14 @@ CREATE TABLE Table_Name (
 Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
 
 For example:
-| Test | Result |
-|------|--------|
-| `SELECT * FROM Employee WHERE EmployeeID = 001;` | <pre>EmployeeID  Name          Position   Department  Salary
-----------  ------------  ---------  ----------  ------
-1           Sarah Parker  Manager    HR          60000</pre> |
+| Test                                                      | Result                                                        |
+| --------------------------------------------------------- | ------------------------------------------------------------- |
+| <pre>SELECT * FROM Employee WHERE EmployeeID = 001;</pre> | <pre>EmployeeID  Name          Position    Department  Salary |
+
+---
+
+1           Sarah Parker  Manager     HR          60000</pre> |
+
 
 ```sql
 
