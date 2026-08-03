@@ -127,8 +127,8 @@ VALUES ('1','Sarah Parker','Manager','HR',60000);
 ```
 
 **Output:**
-<img width="1219" height="806" alt="image" src="https://github.com/user-attachments/assets/5ade562d-1cd0-4ec1-8f07-5d93a69bf6f5" />
 
+<img width="1219" height="806" alt="image" src="https://github.com/user-attachments/assets/5ade562d-1cd0-4ec1-8f07-5d93a69bf6f5" />
 
 **Question 2**
 ---
@@ -155,28 +155,67 @@ SELECT * FROM jobs;</pre></td> <td><pre>job_id      job_title          min_salar
 
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE jobs(job_id INT,job_title VARCHAR(100) DEFAULT '',min_salary DECIMAL(10,2) DEFAULT 8000.00,max_salary DECIMAL(10,2) DEFAULT NULL);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1278" height="784" alt="image" src="https://github.com/user-attachments/assets/6b91e5dc-9bb3-4414-b3a4-c4c86790f590" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to Add a new column Country as text in the Student_details table.
+
+Sample table: Student_details
+
+ cid              name             type   notnull     dflt_value  pk
+---------------  ---------------  -----  ----------  ----------  ----------
+0                RollNo           int    0                       1
+1                Name             VARCH  1                       0
+2                Gender           TEXT   1                       0
+3                Subject          VARCH  0                       0
+4                MARKS            INT (  0                       0
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>PRAGMA table_info('Student_details');</pre></td>
+    <td><pre>cid  name     type         notnull  dflt_value  pk
+---  -------  -----------  -------  ----------  --
+0    RollNo   INT          0                    1
+1    Name     VARCHAR(10)  1                    0
+2    Gender   TEXT         1                    0
+3    Subject  VARCHAR(30)  0                    0
+4    MARKS    INT(3)       0                    0
+5    Country  TEXT         0                    0</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 3
+ALTER TABLE Student_details
+ADD COLUMN Country TEXT;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1283" height="814" alt="image" src="https://github.com/user-attachments/assets/85a628b4-b50f-4703-85b1-ed3544231f9c" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+In the Books table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+
+ISBN             Title                      Author           Publisher   Year
+---------------  -------------------------  ---------------  ----------  ----------
+978-1234567890   Introduction to AI         John Doe
+978-9876543210   Deep Learning              Jane Doe         TechPress   2022
+978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
+
+For example:
+
 
 ```sql
 -- Paste your SQL code below for Question 4
