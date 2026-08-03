@@ -122,7 +122,8 @@ For example:
 </table>
 
 ```sql
-
+INSERT INTO Employee (EmployeeID,Name,Position,Department,Salary)
+VALUES ('1','Sarah Parker','Manager','HR',60000);
 ```
 
 **Output:**
