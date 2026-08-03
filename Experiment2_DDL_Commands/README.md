@@ -212,94 +212,243 @@ ADD COLUMN Country TEXT;
 ---
 In the Books table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
+```text
 ISBN             Title                      Author           Publisher   Year
 ---------------  -------------------------  ---------------  ----------  ----------
 978-1234567890   Introduction to AI         John Doe
 978-9876543210   Deep Learning              Jane Doe         TechPress   2022
 978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
-
+```
 For example:
 
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>SELECT * FROM Books;</pre></td>
+    <td><pre>ISBN             Title                      Author         Publisher   Year
+---------------  -------------------------  -------------  ----------  ----------
+978-1234567890   Introduction to AI         John Doe
+978-9876543210   Deep Learning              Jane Doe       TechPress   2022
+978-1122334455   Cybersecurity Essentials   Alice Smith                2021</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 4
+INSERT INTO Books (ISBN,Title,Author,Publisher,Year) VALUES ('978-1234567890','Introduction to AI','John Doe',NULL,NULL);
+INSERT INTO Books (ISBN,Title,Author,Publisher,Year) VALUES ('978-9876543210','Deep Learning','Jane Doe','TechPress',2022);
+INSERT INTO Books (ISBN,Title,Author,Publisher,Year) VALUES ('978-1122334455','Cybersecurity Essentials','Alice Smith',NULL,2021);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1289" height="759" alt="image" src="https://github.com/user-attachments/assets/b2ccaeaa-1ef6-4b17-9293-baf9775e3aaf" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>INSERT INTO Orders (OrderID, OrderDate, CustomerID)
+VALUES (1, '2024-08-01', 1);
+
+INSERT INTO Invoices (InvoiceID, InvoiceDate, Amount,
+DueDate, OrderID)
+VALUES (1, '2024-08-01', 100.0, '2024-09-01', 1);
+
+SELECT * FROM Invoices;</pre></td> <td><pre>InvoiceID   InvoiceDate  Amount  DueDate     OrderID
+
+---
+
+1           2024-08-01   100.0   2024-09-01  1</pre></td>
+
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Invoices (InvoiceID INTEGER PRIMARY KEY,InvoiceDate DATE,Amount REAL CHECK (Amount>0),DueDate DATE CHECK (DueDate>InvoiceDate),OrderID INTEGER,FOREIGN KEY (OrderID) REFERENCES orders(OrderID));
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1294" height="693" alt="image" src="https://github.com/user-attachments/assets/45e77c08-2a96-4316-bbf8-31d731309376" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
+
+For example:
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>PRAGMA table_info('Student_details');</pre></td>
+    <td><pre>cid  name          type          notnull  dflt_value  pk
+---  ------------  ------------  -------  ----------  --
+0    RollNo        int           0                    1
+1    Name          VARCHAR(100)  1                    0
+2    Gender        TEXT          1                    0
+3    Subject       VARCHAR(30)   0                    0
+4    MARKS         INT(3)        0                    0
+5    MobileNumber  NUMBER        0                    0
+6    Address       VARCHAR(100)  0                    0</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 6
+ALTER TABLE Student_details ADD COLUMN MobileNumber NUMBER;
+ALTER TABLE Student_details ADD COLUMN Address VARCHAR(100);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1302" height="791" alt="image" src="https://github.com/user-attachments/assets/2d05bb64-935d-4804-a19f-cd6cb422cb33" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Locations with the following columns:
+
+LocationID as INTEGER
+LocationName as TEXT
+Address as TEXT
+
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>PRAGMA table_info('Locations');</pre></td>
+    <td><pre>cid  name          type     notnull  dflt_value  pk
+---  ------------  -------  -------  ----------  --
+0    LocationID    INTEGER  0                    0
+1    LocationName  TEXT     0                    0
+2    Address       TEXT     0                    0</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Locations( LocationID INTEGER,LocationName TEXT,Address TEXT);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1307" height="778" alt="image" src="https://github.com/user-attachments/assets/e53629af-e67e-485c-88e9-e9ee61327e73" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
+
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>INSERT INTO Department (DepartmentID, DepartmentName, Location)
+VALUES (1, 'Human Resources', 'New York');
+
+SELECT * FROM Department;</pre></td> <td><pre>DepartmentID  DepartmentName   Location
+
+---
+
+1             Human Resources  New York</pre></td>
+
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Department(DepartmentID INTEGER PRIMARY KEY,DepartmentName TEXT UNIQUE NOT NULL,Location TEXT);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1297" height="700" alt="image" src="https://github.com/user-attachments/assets/7632f120-8d1d-4ed5-9860-b56f986b29c1" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
+
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>INSERT INTO ProjectAssignments
+(AssignmentID, EmployeeID, ProjectID, AssignmentDate)
+VALUES (2, 99, 1, '2024-01-03');</pre></td>
+    <td><pre>Error: FOREIGN KEY constraint failed</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 9
+CREATE TABLE ProjectAssignments (AssignmentID INTEGER PRIMARY KEY,EmployeeID INTEGER,ProjectID INTEGER,AssignmentDate DATE NOT NULL,FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID), FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID));
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1297" height="754" alt="image" src="https://github.com/user-attachments/assets/6f78839a-7654-41e4-b446-103b80fedbb8" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all employees from Former_employees into Employee
+
+Table attributes are EmployeeID, Name, Department, Salary
+
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>SELECT * FROM Employee;</pre></td>
+    <td><pre>EmployeeID  Name        Department   Salary
+----------  ----------  -----------  ------
+201         John Doe    HR           50000
+202         Jane Smith  Engineering  75000
+203         Emily Davis Marketing    60000</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Employee SELECT * FROM Former_employees;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1266" height="812" alt="image" src="https://github.com/user-attachments/assets/a8d921b6-77c3-4c92-a94b-f211f3797435" />
 
 
 ## RESULT
