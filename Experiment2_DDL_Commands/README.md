@@ -127,12 +127,32 @@ VALUES ('1','Sarah Parker','Manager','HR',60000);
 ```
 
 **Output:**
+<img width="1219" height="806" alt="image" src="https://github.com/user-attachments/assets/5ade562d-1cd0-4ec1-8f07-5d93a69bf6f5" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
+
+For example:
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>INSERT INTO jobs (job_id, job_title, min_salary, max_salary)
+VALUES (1, 'Software Engineer', 9000, 15000);
+
+SELECT * FROM jobs;</pre></td> <td><pre>job_id      job_title          min_salary  max_salary
+
+---
+
+1           Software Engineer  9000        15000</pre></td>
+
+  </tr>
+</table>
+
 
 ```sql
 -- Paste your SQL code below for Question 2
