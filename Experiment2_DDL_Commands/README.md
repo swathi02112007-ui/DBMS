@@ -121,6 +121,8 @@ For example:
   </tr>
 </table>
 
+## Code:
+
 ```sql
 INSERT INTO Employee (EmployeeID,Name,Position,Department,Salary)
 VALUES ('1','Sarah Parker','Manager','HR',60000);
@@ -153,6 +155,7 @@ SELECT * FROM jobs;</pre></td> <td><pre>job_id      job_title          min_salar
   </tr>
 </table>
 
+## Code:
 
 ```sql
 CREATE TABLE jobs(job_id INT,job_title VARCHAR(100) DEFAULT '',min_salary DECIMAL(10,2) DEFAULT 8000.00,max_salary DECIMAL(10,2) DEFAULT NULL);
@@ -199,6 +202,8 @@ For example:
   </tr>
 </table>
 
+## Code:
+
 ```sql
 ALTER TABLE Student_details
 ADD COLUMN Country TEXT;
@@ -236,6 +241,8 @@ For example:
   </tr>
 </table>
 
+## Code:
+
 ```sql
 INSERT INTO Books (ISBN,Title,Author,Publisher,Year) VALUES ('978-1234567890','Introduction to AI','John Doe',NULL,NULL);
 INSERT INTO Books (ISBN,Title,Author,Publisher,Year) VALUES ('978-9876543210','Deep Learning','Jane Doe','TechPress',2022);
@@ -249,6 +256,7 @@ INSERT INTO Books (ISBN,Title,Author,Publisher,Year) VALUES ('978-1122334455','C
 **Question 5**
 ---
 Create a table named Invoices with the following constraints:
+
 InvoiceID as INTEGER should be the primary key.
 InvoiceDate as DATE.
 Amount as REAL should be greater than 0.
@@ -278,6 +286,8 @@ SELECT * FROM Invoices;</pre></td> <td><pre>InvoiceID   InvoiceDate  Amount  Due
 
   </tr>
 </table>
+
+## Code:
 
 ```sql
 CREATE TABLE Invoices (InvoiceID INTEGER PRIMARY KEY,InvoiceDate DATE,Amount REAL CHECK (Amount>0),DueDate DATE CHECK (DueDate>InvoiceDate),OrderID INTEGER,FOREIGN KEY (OrderID) REFERENCES orders(OrderID));
@@ -310,6 +320,8 @@ For example:
 6    Address       VARCHAR(100)  0                    0</pre></td>
   </tr>
 </table>
+
+## Code:
 
 ```sql
 ALTER TABLE Student_details ADD COLUMN MobileNumber NUMBER;
@@ -344,6 +356,8 @@ For example:
 2    Address       TEXT     0                    0</pre></td>
   </tr>
 </table>
+
+## Code:
 
 ```sql
 CREATE TABLE Locations( LocationID INTEGER,LocationName TEXT,Address TEXT);
@@ -380,6 +394,8 @@ SELECT * FROM Department;</pre></td> <td><pre>DepartmentID  DepartmentName   Loc
   </tr>
 </table>
 
+## Code:
+
 ```sql
 CREATE TABLE Department(DepartmentID INTEGER PRIMARY KEY,DepartmentName TEXT UNIQUE NOT NULL,Location TEXT);
 ```
@@ -411,6 +427,8 @@ VALUES (2, 99, 1, '2024-01-03');</pre></td>
   </tr>
 </table>
 
+## Code:
+
 ```sql
 CREATE TABLE ProjectAssignments (AssignmentID INTEGER PRIMARY KEY,EmployeeID INTEGER,ProjectID INTEGER,AssignmentDate DATE NOT NULL,FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID), FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID));
 ```
@@ -441,6 +459,8 @@ For example:
 203         Emily Davis Marketing    60000</pre></td>
   </tr>
 </table>
+
+## Code:
 
 ```sql
 INSERT INTO Employee SELECT * FROM Former_employees;
