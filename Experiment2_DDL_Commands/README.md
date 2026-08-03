@@ -132,7 +132,7 @@ VALUES ('1','Sarah Parker','Manager','HR',60000);
 
 **Question 2**
 ---
-create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
+Create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 For example:
 <table>
@@ -166,15 +166,19 @@ CREATE TABLE jobs(job_id INT,job_title VARCHAR(100) DEFAULT '',min_salary DECIMA
 ---
 Write a SQL query to Add a new column Country as text in the Student_details table.
 
-Sample table: Student_details
+**Sample table: Student_details**
 
- cid              name             type   notnull     dflt_value  pk
----------------  ---------------  -----  ----------  ----------  ----------
-0                RollNo           int    0                       1
-1                Name             VARCH  1                       0
-2                Gender           TEXT   1                       0
-3                Subject          VARCH  0                       0
-4                MARKS            INT (  0                       0
+```text
+cid  name     type         notnull  dflt_value  pk
+---  -------  -----------  -------  ----------  --
+0    RollNo   int          0                    1
+1    Name     VARCHAR(10)  1                    0
+2    Gender   TEXT         1                    0
+3    Subject  VARCHAR(30)  0                    0
+4    MARKS    INT(3)       0                    0
+5    Country  TEXT         0                    0
+```
+
 For example:
 
 <table>
