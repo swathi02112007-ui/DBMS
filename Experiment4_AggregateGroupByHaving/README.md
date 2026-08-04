@@ -45,31 +45,13 @@ Sample table: Patients Table
 <img width="1076" height="161" alt="image" src="https://github.com/user-attachments/assets/649bef99-56e2-4f85-8fb5-dcef326fe4ca" />
 
 For example:
-<table>
-  <tr>
-    <th>Test</th>
-    <th>Result</th>
-  </tr>
-  <tr>
-    <td><pre>SELECT
-  CASE
-    WHEN Age BETWEEN 20 AND 30 THEN '20-30'
-    WHEN Age BETWEEN 31 AND 40 THEN '31-40'
-    WHEN Age BETWEEN 41 AND 50 THEN '41-50'
-    ELSE 'Above 50'
-  END AS AgeGroup,
-  COUNT(*) AS TotalPatients
-FROM Patients
-GROUP BY AgeGroup;</pre></td>
-    <td><pre>AgeGroup    TotalPatients
+
+<pre>AgeGroup    TotalPatients
 ----------  -------------
 20-30       1
 31-40       5
 41-50       3
-Above 50    1</pre></td>
-  </tr>
-</table>
-
+Above 50    1</pre>
 
 ```sql
 -- Paste your SQL code below for Question 1
