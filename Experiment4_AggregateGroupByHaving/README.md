@@ -401,14 +401,14 @@ FROM products
 GROUP BY category_id
 HAVING MIN(category_id)<3;
 ```
-**GRADES:**
-
-<img width="1429" height="756" alt="Screenshot 2026-08-04 181639" src="https://github.com/user-attachments/assets/1ab9b0de-addf-4793-94eb-b0bcf694c71f" />
 
 **Output:**
 
 <img width="1295" height="773" alt="Screenshot 2026-08-04 144626" src="https://github.com/user-attachments/assets/abfd8c3c-30eb-4b30-a789-846e9a38fe57" />
 
+**GRADES:**
+
+<img width="1429" height="756" alt="Screenshot 2026-08-04 181639" src="https://github.com/user-attachments/assets/1ab9b0de-addf-4793-94eb-b0bcf694c71f" />
 
 ## RESULT
 Thus, the SQL queries to implement aggregate functions, GROUP BY, and HAVING clause have been executed successfully.
