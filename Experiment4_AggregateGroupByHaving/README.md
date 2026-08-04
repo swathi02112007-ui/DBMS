@@ -224,17 +224,34 @@ WHERE age>32;
 
 **Question 6**
 ---
+Write a SQL query to find the Fruit with the lowest available quantity.
+
+Note: Inventory attribute contains amount of fruits
+
+Table: fruits
+```
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+unit        TEXT
+inventory   INTEGER
+price       REAL
+```
+
+For example:
+
 <table>
   <tr>
     <th>Result</th>
   </tr>
   <tr>
-    <td><pre>category_id  count(product_name)
------------  -------------------
-1            4
-2            3</pre></td>
+    <td><pre>fruit_name  lowest_quantity
+----------  ---------------
+Watermelon  15</pre></td>
   </tr>
 </table>
+
 
 ```sql
 SELECT name AS fruit_name, inventory AS lowest_quantity
@@ -248,7 +265,33 @@ WHERE inventory = ( SELECT MIN(inventory) FROM fruits);
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to find the minimum purchase amount.
+
+Sample table: orders
+```
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
+```
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>MINIMUM
+----------
+65.26</pre></td>
+  </tr>
+</table>
 
 ```sql
 SELECT MIN(purch_amt) AS MINIMUM FROM orders;
@@ -260,6 +303,24 @@ SELECT MIN(purch_amt) AS MINIMUM FROM orders;
 
 **Question 8**
 ---
+Write the SQL query that achieves the grouping of data by age intervals using the expression (age/5)5, calculates the average age for each group, and excludes groups where the average age is not less than 24.
+
+Sample table: customer1
+
+<img width="992" height="173" alt="image" src="https://github.com/user-attachments/assets/b4e5bfc1-c95e-4348-b522-19944b320ccd" />
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>age_group   AVG(age)
+----------  ----------
+20          23.0</pre></td>
+  </tr>
+</table>
 
 ```sql
 SELECT (age/5) * 5 AS age_group, AVG(age)
