@@ -401,6 +401,9 @@ FROM products
 GROUP BY category_id
 HAVING MIN(category_id)<3;
 ```
+**GRADES:**
+
+<img width="1429" height="756" alt="image" src="https://github.com/user-attachments/assets/d8944c97-f98a-4872-a5b4-49132a2e6798" />
 
 **Output:**
 
