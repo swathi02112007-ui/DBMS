@@ -471,5 +471,10 @@ INSERT INTO Employee SELECT * FROM Former_employees;
 <img width="1266" height="812" alt="image" src="https://github.com/user-attachments/assets/a8d921b6-77c3-4c92-a94b-f211f3797435" />
 
 
+**GRADES:**
+
+<img width="1440" height="772" alt="image" src="https://github.com/user-attachments/assets/eb5ce51b-16c5-458e-8fe1-609cae9afc05" />
+
+
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
