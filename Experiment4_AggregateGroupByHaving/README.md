@@ -224,63 +224,126 @@ WHERE age>32;
 
 **Question 6**
 ---
--- Paste Question 6 here
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>category_id  count(product_name)
+-----------  -------------------
+1            4
+2            3</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT name AS fruit_name, inventory AS lowest_quantity
+FROM fruits
+WHERE inventory = ( SELECT MIN(inventory) FROM fruits);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1265" height="791" alt="Screenshot 2026-08-04 144041" src="https://github.com/user-attachments/assets/aa6bb4ce-1505-4ac8-b307-dcd674a81695" />
 
 **Question 7**
 ---
 -- Paste Question 7 here
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT MIN(purch_amt) AS MINIMUM FROM orders;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1269" height="793" alt="Screenshot 2026-08-04 144156" src="https://github.com/user-attachments/assets/c55fd973-ee35-4182-9de2-b904b592b3e5" />
 
 **Question 8**
 ---
--- Paste Question 8 here
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT (age/5) * 5 AS age_group, AVG(age)
+FROM customer1
+GROUP BY age_group
+HAVING AVG(age)<24;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1263" height="790" alt="Screenshot 2026-08-04 144342" src="https://github.com/user-attachments/assets/fcce8730-c8e0-4667-9154-fdaf9a24e0de" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that performs grouping by age groups and displays the maximum salary for each group, excluding groups where the maximum salary is not greater than 8000. 
+
+Note: Calculate the age group as multiples of 5.
+
+Eg., 20,22,23 comes in age group 20. 
+
+25,27,29 comes in age group 25.
+
+Sample table: customer1
+
+<img width="992" height="173" alt="image" src="https://github.com/user-attachments/assets/72b6d5e7-4e8e-4527-a5f4-e0c9287377a6" />
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>age_group   MAX(salary)
+----------  -----------
+20          10000
+25          8500</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT (age/5)*5 AS age_group, 
+MAX(salary) AS "MAX(salary)"
+FROM customer1
+GROUP BY age_group
+HAVING MAX(salary)>8000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1296" height="762" alt="Screenshot 2026-08-04 144513" src="https://github.com/user-attachments/assets/a6e14641-5e71-4b24-a5ef-e7b473a2e5c4" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the selection of total number of products for each category from the "products" table, and includes only those products where the minimum category ID is less than 3.
+
+Sample table: products
+
+<img width="972" height="212" alt="image" src="https://github.com/user-attachments/assets/0a7a1a8e-e6cb-47c1-90d4-c4d738e7b186" />
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>category_id  count(product_name)
+-----------  -------------------
+1            4
+2            3</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT category_id,count(product_name)
+FROM products 
+GROUP BY category_id
+HAVING MIN(category_id)<3;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1295" height="773" alt="Screenshot 2026-08-04 144626" src="https://github.com/user-attachments/assets/abfd8c3c-30eb-4b30-a789-846e9a38fe57" />
 
 
 ## RESULT
