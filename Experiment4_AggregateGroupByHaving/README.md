@@ -38,7 +38,21 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+How many patients are there in each age group category (e.g., under 20, 20-30, 30-40, etc.)?
+
+Sample table: Patients Table
+
+<img width="1076" height="161" alt="image" src="https://github.com/user-attachments/assets/649bef99-56e2-4f85-8fb5-dcef326fe4ca" />
+
+For example:
+```text
+AgeGroup    TotalPatients
+----------  -------------
+20-30       1
+31-40       5
+41-50       3
+Above 50    1
+```
 
 ```sql
 -- Paste your SQL code below for Question 1
