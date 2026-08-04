@@ -1,4 +1,4 @@
-# Experiment 4: Aggregate Functions, Group By and Having Clause
+<img width="1310" height="808" alt="image" src="https://github.com/user-attachments/assets/7a218d1a-5e62-4b29-9679-cee6e0196bfd" /># Experiment 4: Aggregate Functions, Group By and Having Clause
 
 ## AIM
 To study and implement aggregate functions, GROUP BY, and HAVING clause with suitable examples.
@@ -62,12 +62,22 @@ Above 50    1</pre></td>
 
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT CASE 
+WHEN (2024-STRFTIME('%Y',DateOfBirth))<20 THEN 'Under 20' 
+WHEN (2024-STRFTIME('%Y',DateOfBirth)) BETWEEN 20 AND 30 THEN '20-30' 
+WHEN (2024-STRFTIME('%Y',DateOfBirth)) BETWEEN 31 AND 40 THEN '31-40'
+WHEN (2024-STRFTIME('%Y',DateOfBirth)) BETWEEN 41 AND 50 THEN '41-50'
+ELSE 'Above 50'
+END AS AgeGroup,
+COUNT(*) AS TotalPatients
+FROM Patients
+GROUP BY AgeGroup
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1310" height="808" alt="image" src="https://github.com/user-attachments/assets/a581d9b0-0a86-4803-b2dc-232f900c4d54" />
 
 **Question 2**
 ---
