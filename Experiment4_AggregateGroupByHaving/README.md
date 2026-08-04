@@ -81,51 +81,146 @@ GROUP BY AgeGroup
 
 **Question 2**
 ---
--- Paste Question 2 here
+How many medical records were created in each month?
+
+Sample table:MedicalRecords Table
+
+<img width="1089" height="164" alt="image" src="https://github.com/user-attachments/assets/cb2327a8-4182-465a-9f8e-88387fb776d8" />
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>Month       TotalRecords
+----------  ------------
+2023-12     2
+2024-01     6
+2024-02     2</pre></td>
+  </tr>
+</table>
+
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT SUBSTR(Date,1,7) AS Month,
+COUNT(*) AS TotalRecords
+FROM MedicalRecords
+GROUP BY Month;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1289" height="804" alt="Screenshot 2026-08-04 143333" src="https://github.com/user-attachments/assets/feeca6ca-8d6e-4bdf-b86e-8fdcda82f137" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write SQL query to extract the email domain from each patient's email address and count the number of patients with the same email domain.
+
+Sample table: Patients Table
+
+<img width="1076" height="161" alt="image" src="https://github.com/user-attachments/assets/d84e6843-1de9-4279-84c9-df39a6264bd5" />
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>EmailDomain  TotalPatients
+-----------  -------------
+example.com  10</pre></td>
+  </tr>
+</table>
+
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT SUBSTR(EMail,INSTR(Email,'@')+1) AS EmailDomain,
+COUNT(*) AS TotalPatients
+FROM Patients
+GROUP BY EmailDomain;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1284" height="756" alt="image" src="https://github.com/user-attachments/assets/c1e6f304-6145-48eb-80dc-fd51fa2d3872" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to calculate total available amount of fruits that has a price greater than 0.5 . Return total Count. 
+
+Note: Inventory attribute contains amount of fruits
+
+Table: fruits
+```
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+unit        TEXT
+inventory   INTEGER
+price       REAL
+```
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>total_available_amount
+----------------------
+160</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT SUM(inventory) AS total_available_amount
+FROM fruits
+WHERE price>0.5;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1261" height="797" alt="image" src="https://github.com/user-attachments/assets/4a868d91-ae2c-425e-922c-c35f8e98d073" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to find the number of employees whose age is greater than 32.
+
+Sample table: employee
+
+| id | name | age | address | salary |
+|----|------|-----|-----------|--------|
+| 1 | Paul | 32 | California | 20000 |
+| 4 | Mark | 25 | Richtown | 65000 |
+| 5 | David | 27 | Texas | 85000 |
+
+For example:
+
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>COUNT
+----------
+5</pre></td>
+  </tr>
+</table>
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT COUNT(*) AS COUNT
+FROM employee
+WHERE age>32;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1263" height="800" alt="image" src="https://github.com/user-attachments/assets/f4b9d86f-961f-411a-af20-f9fb89d53ea6" />
 
 **Question 6**
 ---
