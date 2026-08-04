@@ -46,12 +46,20 @@ Sample table: Patients Table
 
 For example:
 
-<pre>AgeGroup    TotalPatients
+<table>
+  <tr>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><pre>AgeGroup    TotalPatients
 ----------  -------------
 20-30       1
 31-40       5
 41-50       3
-Above 50    1</pre>
+Above 50    1</pre></td>
+  </tr>
+</table>
+
 
 ```sql
 -- Paste your SQL code below for Question 1
