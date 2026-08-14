@@ -925,6 +925,10 @@ WHERE p.admission_date BETWEEN '2024-01-01' AND '2024-01-31';
 
 <img width="1345" height="755" alt="image" src="https://github.com/user-attachments/assets/42507251-c0ea-441d-9a6f-e471200692c5" />
 
+## GRADE :
+
+<img width="1501" height="733" alt="image" src="https://github.com/user-attachments/assets/9e8c3d72-bea1-4db1-8d0b-7985255c1972" />
+
 
 ## RESULT
 Thus, the SQL queries to implement different types of joins have been executed successfully.
