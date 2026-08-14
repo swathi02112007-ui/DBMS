@@ -428,6 +428,9 @@ SELECT * FROM Medications WHERE dosage = (SELECT MIN(dosage) FROM Medications);
 <img width="1332" height="799" alt="Screenshot 2026-08-06 110022" src="https://github.com/user-attachments/assets/66dd2ec4-faf0-41a5-968c-dd5451b6ae38" />
 
 
+## GRADE:
+
+<img width="1497" height="749" alt="image" src="https://github.com/user-attachments/assets/62a82222-d891-41b1-b129-8050bf9eaa8f" />
 
 
 ## RESULT
