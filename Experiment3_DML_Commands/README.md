@@ -47,7 +47,35 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Change the supplier name to upper case where contact person contains ' Singh' in suppliers table.
+```
+name               type
+-----------------  ---------------
+supplier_id        INT
+supplier_name      VARCHAR(100)
+contact_person     VARCHAR(100)
+phone_number       VARCHAR(20)
+email              VARCHAR(100)
+address            VARCHAR(250)
+```
+
+For example:
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Result</th>
+  </tr>
+  <tr>
+    <td><code>select changes();</code></td>
+    <td>
+      <code>changes()</code><br>
+      -----------------<br>
+      2
+    </td>
+  </tr>
+</table>
+
 
 ```sql
 -- Paste your SQL code below for Question 1
