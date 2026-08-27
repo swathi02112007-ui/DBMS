@@ -455,5 +455,10 @@ WHERE city='New York' OR NOT (grade>100);
 
 <img width="1325" height="662" alt="image" src="https://github.com/user-attachments/assets/712c8846-416c-4d31-a1e3-dcc0fbea3cdd" />
 
+
+## GRADE :
+
+<img width="1463" height="787" alt="image" src="https://github.com/user-attachments/assets/7bf3d286-da01-4802-9fbc-1052ba2200bc" />
+
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
