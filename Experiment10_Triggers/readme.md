@@ -149,6 +149,61 @@ WHERE id = 1;
 **Expected Output:**
 - The `last_modified` column in the `products` table is updated automatically to the current date and time when any record is updated.
 
+## Create the Tables:
+
+```
+CREATE TABLE products (
+    product_id NUMBER PRIMARY KEY,
+    product_name VARCHAR2(50),
+    price NUMBER,
+    last_modified TIMESTAMP
+);
+```
+
+## Insert Sample Data
+
+```
+INSERT INTO products
+VALUES (1, 'Laptop', 50000, SYSTIMESTAMP);
+
+COMMIT;
+```
+
+## Create the Trigger:
+
+```
+CREATE OR REPLACE TRIGGER update_last_modified
+BEFORE UPDATE ON products
+FOR EACH ROW
+BEGIN
+    :NEW.last_modified := SYSTIMESTAMP;
+END;
+/
+```
+
+## Test the Trigger:
+
+```
+UPDATE products
+SET price = 55000
+WHERE product_id = 1;
+
+COMMIT;
+```
+
+## Check the result:
+
+```
+SELECT product_id, product_name, price, last_modified
+FROM products;
+```
+
+## OUTPUT:
+
+<img width="700" height="582" alt="image" src="https://github.com/user-attachments/assets/2a9d2453-c0ec-4bd0-ae3a-3f8f200a0a0b" />
+
+<img width="946" height="143" alt="image" src="https://github.com/user-attachments/assets/d39f2dea-1593-44cb-a606-c658b5bd2391" />
+
 ---
 
 ## 4. Write a trigger to keep track of the number of updates made to a table.
@@ -159,6 +214,69 @@ WHERE id = 1;
 **Expected Output:**
 - The `audit_log` table will maintain a count of how many updates have been made to the `customer_orders` table.
 
+## Create the Tables:
+
+```
+CREATE TABLE customer_orders (
+    order_id NUMBER PRIMARY KEY,
+    customer_name VARCHAR2(50),
+    order_amount NUMBER
+);
+
+CREATE TABLE audit_log (
+    update_count NUMBER
+);
+```
+
+## Insert Initial Data
+
+```
+INSERT INTO audit_log VALUES (0);
+
+INSERT INTO customer_orders
+VALUES (1, 'Anitha', 5000);
+
+COMMIT;
+```
+
+## Create the Trigger:
+
+```
+CREATE OR REPLACE TRIGGER count_updates
+AFTER UPDATE ON customer_orders
+BEGIN
+    UPDATE audit_log
+    SET update_count = update_count + 1;
+END;
+/
+```
+
+## Test the Trigger:
+
+```
+UPDATE customer_orders
+SET order_amount = 6000
+WHERE order_id = 1;
+
+COMMIT;
+```
+
+## Check the Counter:
+
+```
+SELECT * FROM audit_log;
+```
+
+## OUTPUT:
+
+<img width="772" height="607" alt="image" src="https://github.com/user-attachments/assets/321e3731-b815-44b8-a7ca-833bc96cf445" />
+
+<img width="356" height="247" alt="image" src="https://github.com/user-attachments/assets/07b371d5-6819-4f66-9bb7-09a4608ba729" />
+
+If you update the table again, the count increases:
+
+<img width="442" height="637" alt="image" src="https://github.com/user-attachments/assets/30470967-0ca4-4c69-8f4c-416cfa0cc64c" />
+
 ---
 
 ## 5. Write a trigger that checks a condition before allowing insertion into a table.
@@ -168,6 +286,68 @@ WHERE id = 1;
 
 **Expected Output:**
 - If the inserted salary in the `employees` table is below the condition (e.g., salary < 3000), the insert operation is blocked, and an error message is raised, such as: `ERROR: Salary below minimum threshold.`
+
+## Create the Tables:
+
+```
+CREATE TABLE employees (
+    emp_id NUMBER PRIMARY KEY,
+    emp_name VARCHAR2(50),
+    salary NUMBER
+);
+CREATE TABLE employee_log (
+    emp_id NUMBER,
+    emp_name VARCHAR2(50),
+    salary NUMBER,
+    action_date TIMESTAMP
+);
+```
+
+## Create the Trigger:
+
+```
+CREATE OR REPLACE TRIGGER check_salary
+BEFORE INSERT ON employees
+FOR EACH ROW
+BEGIN
+    IF :NEW.salary < 3000 THEN
+        RAISE_APPLICATION_ERROR(
+            -20002,
+            'ERROR: Salary below minimum threshold.'
+        );
+    END IF;
+END;
+/
+```
+
+## Test with an Invalid Salary:
+
+```
+INSERT INTO employees
+VALUES (102, 'Priya', 2500);
+```
+
+## Output:
+
+<img width="813" height="145" alt="image" src="https://github.com/user-attachments/assets/64f4dff6-cd54-433a-9e68-30f21a70214c" />
+
+## Test with a Valid Salary:
+
+```
+INSERT INTO employees
+VALUES (103, 'Kumar', 5000);
+```
+
+## Check the Table:
+
+```
+SELECT * FROM employees;
+```
+
+## OUTPUT:
+
+<img width="681" height="123" alt="image" src="https://github.com/user-attachments/assets/2644b44b-8a9e-4618-abd6-317509410212" />
+
 
 ## RESULT
 Thus, the PL/SQL trigger programs were written and executed successfully.
